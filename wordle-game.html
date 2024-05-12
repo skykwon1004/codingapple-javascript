@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        input {
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <button>제출</button>
+
+    <script>
+        var 답 = 'abcde';
+        document.querySelector('button').addEventListener('click', function () {
+
+            // 1. 답이 위치까지 맞으면 - 초록칠
+            // 2. 위치는 안맞는데 어딘가에 답이 있으면 - 노란칠
+            // 3. 다 아니면 - 회색칠
+
+            var input = document.querySelectorAll('.input');
+
+            // if (input[0].value == 답[0]) {
+            //     input[0].style.background = 'green';
+            // } else if (답.includes(input[0].value)) {
+            //     input[0].style.background = 'yellow';
+            // } else {
+            //     input[0].style.background = 'lightgrey';
+            // }
+
+            for (let i = 0; i < 5; i++) {
+                if (input[i].value == 답[i]) {
+                    input[i].style.background = 'green';
+                } else if (답.includes(input[i].value)) {
+                    input[i].style.background = 'yellow';
+                } else {
+                    input[i].style.background = 'lightgrey';
+                }
+            }
+
+            var template = `<div>
+                    <input class = "input">
+                    <input class = "input">
+                    <input class = "input">
+                    <input class = "input">
+                    <input class = "input">
+                </div>`
+
+            document.querySelector('body').insertAdjacentHTML('beforeend', template);
+        });
+    </script>
+</body>
+
+</html>

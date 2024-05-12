@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <!-- <div class="alert-box" id="alert">
+        알림창
+        <button onclick="closeBtn()">닫기</button>
+    </div>
+    <button onclick="openBtn()">버튼</button> -->
+
+    <!-- <div class="alert-box" id="alert">
+        알림창
+        <button onclick="toggleBtn('none')">닫기</button>
+    </div>
+    <button onclick="toggleBtn('block')">버튼</button> -->
+
+
+    <div class="alert-box" id="alert">
+        <p class="text"></p>
+        <button id="close" )">닫기</button>
+    </div>
+    <button onclick="openIdBtn('block', '아이디를 입력')">아이디</button>
+    <button onclick="openPwBtn('block', '비번을 입력')">비번</button>
+
+    <script>
+        // function openBtn() {
+        //     document.getElementById('alert').style.display = 'block';
+        // }
+        // openBtn();
+
+        // function closeBtn() {
+        //     document.getElementById('alert').style.display = 'none';
+        // }
+
+        // function toggleBtn(파라미터) {
+        //     document.getElementById('alert').style.display = 파라미터;
+        // }
+
+        function openIdBtn(p, text) {
+            document.getElementById('alert').style.display = p;
+            document.getElementsByClassName('text')[0].innerHTML = text;
+        }
+
+        function openPwBtn(p, text) {
+            document.getElementById('alert').style.display = p;
+            document.getElementsByClassName('text')[0].innerHTML = text;
+        }
+
+        document.getElementById('close').addEventListener('click', function () {
+            document.getElementById('alert').style.display = 'none';
+        });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

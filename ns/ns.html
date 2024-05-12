@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>농심 앱 단어 맞추기 이벤트</title>
+
+    <link href="/ns/reset.css" rel="stylesheet">
+    <link href="/ns/ns.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+</head>
+
+<body>
+    <div class="inner">
+        <div class="word_wrap">
+            <ul class="row_01">
+                <li>투</li>
+                <li>편</li>
+                <li>갱</li>
+                <li>강</li>
+                <li>토</li>
+                <li class="on">포</li>
+                <li>터</li>
+                <li>눈</li>
+                <li>망</li>
+                <li>알</li>
+                <li>소</li>
+                <li>땅</li>
+                <li>룬</li>
+                <li>칩</li>
+                <li>섬</li>
+                <li>애</li>
+                <li>쿵</li>
+                <li>테</li>
+                <li>펭</li>
+                <li>아</li>
+            </ul>
+        </div>
+
+        <p>한 글자씩 순서대로 선택하여 빈 칸을 완성해보세요!</p>
+
+        <ul class="word_result">
+            <li>포</li>
+            <li>?</li>
+            <li>?</li>
+            <li>?</li>
+        </ul>
+
+        <div class="btn-warp">
+            <button class="reset">
+                새로 할래요
+            </button>
+            <button class="submit">
+                다 찾았어요!
+            </button>
+        </div>
+    </div>
+</body>
+
+<script>
+    // $(document).ready(function () {
+    //     let s = '포';
+    //     let i = 1; // i 변수를 함수 외부에 선언
+
+    //     // clickEventHandler 함수는 문서 로딩 시에 한 번만 호출됨
+    //     function clickEventHandler() {
+    //         const liCount = $('.word_result>li').length; // liCount = 4 
+    //         i = 1;
+
+    //         // row_01>li의 값 추가하기
+    //         $('.row_01>li').on('click', function () {
+    //             if (s.length < liCount) {
+    //                 console.log("dd" + "i:" + i);
+    //                 let clickValue = $(this).text();
+    //                 s += clickValue;
+    //                 console.log(clickValue);
+    //                 $(this).addClass('on');
+
+    //                 if (i < liCount) {
+    //                     $('.word_result>li:eq(' + i + ')').text(clickValue);
+    //                     i++;
+    //                 }
+
+    //                 if (i === liCount) {
+    //                     $('.submit').addClass('on');
+    //                 }
+    //             }
+    //         })
+    //     }
+
+    //     clickEventHandler();
+
+    //     // 다 찾았어요 버튼
+    //     $('.submit').click(function () {
+    //         const answer = '포테토칩';
+    //         if (s === answer) {
+    //             alert('정답입니다! 쿠폰증정 ~~~');
+    //         } else {
+    //             alert('틀렸습니다');
+    //         }
+    //     });
+
+
+    //     // 새로 할래요 버튼
+    //     $('.reset').click(function () {
+    //         s = '포'; // s 변수를 재할당하여 초기화
+    //         i = 1; // i 변수도 초기화
+
+    //         // word_result 초기화
+    //         $('.word_result>li').each(function (index) {
+    //             if (index === 0) {
+    //                 $(this).text('포');
+    //             } else {
+    //                 $(this).text('?');
+    //             }
+    //         });
+
+    //         console.log(s, i)
+
+    //         // // row_01의 'on' 클래스 제거
+    //         $('.row_01 li').removeClass('on');
+    //         // 포에 'on' 클래스 추가
+    //         $('.row_01 li:contains("포")').addClass('on');
+
+    //         clickEventHandler();
+    //     });
+    // })
+
+
+    let s = '포';
+    let i = 1;
+
+    function clickEventHandler() {
+        const liCount = $('.word_result>li').length;
+
+        $('.row_01>li').off('click').on('click', function () {
+            if (s.length < liCount) {
+                let clickValue = $(this).text();
+                s += clickValue;
+                $(this).addClass('on');
+
+                if (i < liCount) {
+                    $('.word_result>li:eq(' + i + ')').text(clickValue);
+                    i++;
+                }
+
+                if (i === liCount) {
+                    $('.submit').addClass('on');
+                }
+            }
+        });
+    }
+
+    function resetGame() {
+        s = '포';
+        i = 1;
+
+        $('.word_result>li').each(function (index) {
+            $(this).text(index === 0 ? '포' : '?');
+        });
+
+        $('.row_01 li').removeClass('on');
+        $('.row_01 li:contains("포")').addClass('on');
+
+        clickEventHandler(); // 클릭 이벤트 핸들러 재설정
+    }
+
+    clickEventHandler();
+
+    $('.submit').click(function () {
+        const answer = '포테토칩';
+        if (s === answer) {
+            alert('정답입니다! 쿠폰증정 ~~~');
+        } else {
+            alert('틀렸습니다');
+        }
+    });
+
+    $('.reset').click(resetGame);
+
+
+</script>
+
+</html>

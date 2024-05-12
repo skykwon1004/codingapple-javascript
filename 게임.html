@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="369game">
+        <h2>삼육구 게임</h2>
+        <div>
+            <input type="text" id="value">
+            <div id="result"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="pass">
+        <h2>합격했냐?</h2>
+        <div>
+            <input type="text" id="passValue01">
+            <input type="text" id="passValue02">
+            <!-- <button onclick="합격()">결과</button> -->
+            <div id="resultValue"></div>
+        </div>
+    </div>
+
+    <script>
+        // document.getElementById('result').addEventListener('change', function () {
+        //     let inputValue = document.getElementById('result').value;
+        //     console.log(inputValue);
+
+        //     if (inputValue % 3 === 0) {
+        //         console.log('박수')
+        //     } else {
+        //         console.log('패스')
+        //     }
+        // })
+
+        function 삼육구게임(inputValue) {
+            if (inputValue % 3 === 0) {
+                document.getElementById('result').innerText = '박수';
+            } else {
+                document.getElementById('result').innerText = '패스';
+            }
+
+            if (inputValue % 9 === 0) {
+                document.getElementById('result').innerText = '박수x2';
+            }
+        }
+
+        document.getElementById('value').addEventListener('change', function () {
+            let inputValue = parseInt(document.getElementById('value').value);
+            삼육구게임(inputValue);
+        });
+
+        // --------------
+
+
+        function 합격() {
+            // let sum01 = $('#passValue01').val();
+            // let sum02 = $('#passValue02').val();
+
+            // if (sum01 && sum02) {
+            //     console.log(sum01, sum02);
+            //     if (sum01 + sum02 >= 120) {
+            //         console.log('합격')
+            //     } else {
+            //         console.log('불합격')
+            //     }
+            // }
+            // else {
+            //     alert("두 개 다 입력하세요");
+            // }
+
+            // $('#passValue01').change(function () {
+            //     let sum01 = this.value;
+
+            //     console.log("sum01 ", sum01);
+            //     $('#passValue02').change(function () {
+            //         sum02 = this.value;
+            //         console.log("sum02 ", Number(Number(sum02) + Number(sum01)));
+
+            //         if (Number(Number(sum02) + Number(sum01)) >= 120) {
+            //             $('#resultValue').text('합격')
+            //         } else {
+            //             $('#resultValue').text('불합격')
+            //         }
+
+            //     });
+            // });
+
+
+            $('#passValue01').change(function (e) {
+                let sum01 = parseFloat(e.target.value); // parseFloat를 사용하여 숫자로 변환
+                console.log('sum01의 타입:', typeof sum01); // sum01의 타입 출력
+
+                $('#passValue02').change(function (e) {
+                    let sum02 = parseFloat(e.target.value); // parseFloat를 사용하여 숫자로 변환
+                    console.log('sum02의 타입:', typeof sum02); // sum02의 타입 출력
+
+                    if ((sum01 >= 40 && sum02 >= 40) && (sum01 + sum02 >= 120)) {
+                        $('#resultValue').text('합격')
+                    } else {
+                        $('#resultValue').text('불합격')
+                    }
+                })
+            });
+
+        }
+
+        합격();
+
+    </script>
+</body>
+
+</html>

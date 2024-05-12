@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+    <div>
+        <input class="in" value=''></input>
+    </div>
+
+    <script>
+        let a = [2, 3];
+
+        let sum = 0;
+        for (let i = 0; i < a.length; i++) {
+            //console.log(a[i]);
+
+            //console.log(sum);
+            sum = sum + a[i];
+
+            console.log(sum)
+        }
+
+        const input_elements = document.querySelectorAll("input.in");
+        let arr = [];
+        addEventListener("change", function (e) {
+            console.log("val: ", e.target.value);
+            arr.push(parseFloat(e.target.value));
+
+
+            console.log(" arr: ", arr.length);
+
+            if (arr.length > 1) {
+                if (arr[0] + arr[1] >= 120) {
+                    alert(" pass")
+                } else { alert("fail") }
+            }
+        })
+    </script>
+
+</body>
+
+</html>
