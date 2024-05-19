@@ -1,175 +1,197 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
 
-    <link href="main.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
+    <link href="main.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
     <title>Hello, world!</title>
-</head>
+  </head>
 
-<body class="dark">
+  <body class="dark">
     <div class="black-bg">
-        <div class="white-bg">
-            <h4>로그인하세요</h4>
-            <form action="success.html">
-                <div class="my-3">
-                    <input type="text" class="form-control" id="email">
-                </div>
-                <div class="my-3">
-                    <input type="password" class="form-control" id="pw">
-                </div>
-                <button type="submit" class="btn btn-primary" id="send">전송</button>
-                <button type="button" class="btn btn-danger" id="close">닫기</button>
-            </form>
-        </div>
+      <div class="white-bg">
+        <h4>로그인하세요</h4>
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email" />
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="pw" />
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+        </form>
+      </div>
     </div>
 
     <script>
+      document
+        .querySelector(".black-bg")
+        .addEventListener("click", function (e) {
+          // e.target; // 유저가 실제로 누른거
+          // e.currentTarget; // 이벤트리스너 달린 곳 = this
+          // e.preventDefault(); // 이벤트 기본동작 막아줌
+          // e.stopPropagation(); // 내 상위요소로 이벤트 버블링 막아줌
 
-        // if (3 == 1) {
-        //     console.log('true')
-        // } else {
-        //     console.log('false')
-        // }
+          console.log(e.target);
+          console.log(document.querySelector(".black-bg"));
 
-        // 앞의 식이 참이면 else if 뒤의 값은 표시 안한다
-        // if (3 == 3) {
-        //     console.log('맞아요1');
-        // } else if (3 == 3) {
-        //     console.log('맞아요2');
-        // }
-
-        // 앞의 식이 참이면 표시, 두번 째도 검사 해서 참이면 2번도 표시
-        // if (3 == 3) {
-        //     console.log('맞아요1');
-        // }
-        // if (3 == 3) {
-        //     console.log('맞아요2');
-        // }
-
-        // 전송버튼 누르면
-        // 저기 input에 입력한 값이 공백이면 알림창 띄워주세요
-        document.getElementById('email').value;
-        document.getElementById('pw').value;
-
-        var 입력한값 = document.getElementById('email').value;
-
-        $('form').on('submit', function (e) {
-            if (document.getElementById('email').value == '') {
-                alert('아이디를 입력해주세요');
-                e.preventDefault();
-            } if (document.getElementById('pw').value == '') {
-                alert('비밀번호를 입력해주세요')
-                e.preventDefault();
-            } else if (document.getElementById('pw').value.length < 6) {
-                alert('비밀번호를 6글자 이상 입력해주세요')
-                e.preventDefault();
-            }
-
-            if (/\S+@\S+\.\S+/.test(입력한값)) {
-                alert('이메일형식아님')
-                e.preventDefault();
-            }
-
+          if (document.querySelector(".black-bg") == e.target) {
+            $(this).removeClass("modal-open");
+          }
         });
+    </script>
 
-        document.getElementById('email').addEventListener('change', function () {
-            console.log('hi')
-        })
+    <script>
+      // if (3 == 1) {
+      //     console.log('true')
+      // } else {
+      //     console.log('false')
+      // }
 
-        // function 삼육구() {
-        //     let n = 13;
+      // 앞의 식이 참이면 else if 뒤의 값은 표시 안한다
+      // if (3 == 3) {
+      //     console.log('맞아요1');
+      // } else if (3 == 3) {
+      //     console.log('맞아요2');
+      // }
 
-        //     if (n % 3 === 0) {
-        //         console.log(true);
-        //     } else {
-        //         console.log(false);
-        //     }
-        // }
+      // 앞의 식이 참이면 표시, 두번 째도 검사 해서 참이면 2번도 표시
+      // if (3 == 3) {
+      //     console.log('맞아요1');
+      // }
+      // if (3 == 3) {
+      //     console.log('맞아요2');
+      // }
 
-        // 삼육구();
+      // 전송버튼 누르면
+      // 저기 input에 입력한 값이 공백이면 알림창 띄워주세요
+      document.getElementById("email").value;
+      document.getElementById("pw").value;
+
+      var 입력한값 = document.getElementById("email").value;
+
+      $("form").on("submit", function (e) {
+        if (document.getElementById("email").value == "") {
+          alert("아이디를 입력해주세요");
+          e.preventDefault();
+        }
+        if (document.getElementById("pw").value == "") {
+          alert("비밀번호를 입력해주세요");
+          e.preventDefault();
+        } else if (document.getElementById("pw").value.length < 6) {
+          alert("비밀번호를 6글자 이상 입력해주세요");
+          e.preventDefault();
+        }
+
+        if (/\S+@\S+\.\S+/.test(입력한값)) {
+          alert("이메일형식아님");
+          e.preventDefault();
+        }
+      });
+
+      document.getElementById("email").addEventListener("change", function () {
+        console.log("hi");
+      });
+
+      // function 삼육구() {
+      //     let n = 13;
+
+      //     if (n % 3 === 0) {
+      //         console.log(true);
+      //     } else {
+      //         console.log(false);
+      //     }
+      // }
+
+      // 삼육구();
     </script>
 
     <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <span class="navbar-brand">EJShop</span>
-            <span class="badge bg-dark">Dark 🔄</span>
-            <button class="navbar-toggler" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
+      <div class="container-fluid">
+        <span class="navbar-brand">EJShop</span>
+        <span class="badge bg-dark">Dark 🔄</span>
+        <button class="navbar-toggler" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
     </nav>
 
     <ul class="list-group">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-        <li class="list-group-item">A fourth item</li>
-        <li class="list-group-item">And a fifth one</li>
+      <li class="list-group-item">An item</li>
+      <li class="list-group-item">A second item</li>
+      <li class="list-group-item">A third item</li>
+      <li class="list-group-item">A fourth item</li>
+      <li class="list-group-item">And a fifth one</li>
     </ul>
 
     <div class="main-bg">
-        <h4>Shirts on Sale</h4>
-        <button id="login" class="btn btn-danger">로그인</button>
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
     <!-- 약관 다 보면 alert창 띄우기 -->
     <div class="lorem" style="width: 200px; height: 100px; overflow-y: scroll">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit
-        debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur
-        praesentium exercitationem.
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas
+      voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat
+      sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur
+      praesentium exercitationem.
     </div>
 
     <script>
-        // div의 스크롤바 내린 양 + 눈에보이는 div높이 == div의 실제높이
-        // alert 띄우기
-        $('.lorem').on('scroll', function () {
-            var 스크롤양 = document.querySelector('.lorem').scrollTop;
-            var 실제높이 = document.querySelector('.lorem').scrollHeight;
-            var 높이 = document.querySelector('.lorem').clientHeight;
-            //console.log(스크롤양, 실제높이, 높이);
+      // div의 스크롤바 내린 양 + 눈에보이는 div높이 == div의 실제높이
+      // alert 띄우기
+      $(".lorem").on("scroll", function () {
+        var 스크롤양 = document.querySelector(".lorem").scrollTop;
+        var 실제높이 = document.querySelector(".lorem").scrollHeight;
+        var 높이 = document.querySelector(".lorem").clientHeight;
+        //console.log(스크롤양, 실제높이, 높이);
 
-            if (스크롤양 + 높이 > 실제높이 - 10) {
-                alert('다읽음');
-            }
-        })
+        if (스크롤양 + 높이 > 실제높이 - 10) {
+          alert("다읽음");
+        }
+      });
 
-        // document.querySelector('html').scrollHeight;
-        // document.querySelector('html').clientHeight;
-        // window.scrollY
-
+      // document.querySelector('html').scrollHeight;
+      // document.querySelector('html').clientHeight;
+      // window.scrollY
     </script>
 
-    <div style="height: 1000px;"></div>
+    <div style="height: 1000px"></div>
 
     <!-- <div class="alert alert-danger">
         <span class="seconds">5</span>초 이내 구매시 사은품 증정!
     </div> -->
 
     <div style="overflow: hidden">
-        <div class="slide-container">
-            <div class="slide-box">
-                <img src="car1.png">
-            </div>
-            <div class="slide-box">
-                <img src="car2.png">
-            </div>
-            <div class="slide-box">
-                <img src="car3.png">
-            </div>
+      <div class="slide-container">
+        <div class="slide-box">
+          <img src="car1.png" />
         </div>
+        <div class="slide-box">
+          <img src="car2.png" />
+        </div>
+        <div class="slide-box">
+          <img src="car3.png" />
+        </div>
+      </div>
     </div>
 
     <button class="prev">이전</button>
@@ -178,177 +200,172 @@
     <button class="slide-3 slide-button">3</button>
     <button class="next">다음</button>
 
-
     <script>
+      $("#login").on("click", function () {
+        $(".black-bg").addClass("modal-open");
+      });
 
-        $('#login').on('click', function () {
-            $('.black-bg').addClass('modal-open')
-        })
+      $("#close").on("click", function () {
+        $(".black-bg").removeClass("modal-open");
+      });
 
-        $('#close').on('click', function () {
-            $('.black-bg').removeClass('modal-open')
-        })
+      // 다크모드
+      let count = 0;
 
-        // 다크모드
-        let count = 0;
+      $(".badge").on("click", function () {
+        count++;
+        // count += 1;
+        // count = count + 1;
+        // console.log(count)
 
-        $('.badge').on('click', function () {
-            count++;
-            // count += 1;
-            // count = count + 1;
-            // console.log(count)
-
-            // 짝수일때 Dark 홀수일때 Light
-            if (count % 2 === 0) {
-                $('.badge').text('Dark 🔄')
-            } else {
-                $('.badge').text('Light 🔄')
-            }
-        })
-
-        // 2초뒤에 hide 실행
-        // setTimeout(function () {
-        //     $('.alert').hide();
-        // }, 2000);
-
-        // 1초마다 실행
-        // setInterval(function () {
-        //     console.log('hi')
-        // }, 1000)
-
-        // 이렇게도 사용가능
-        // setTimeout(함수, 1000)
-
-        // function 함수() {
-        //     console.log('안녕')
-        // }
-
-        let seconds = 5;
-
-        function updateTimer() {
-            $('.seconds').text(seconds);
-            seconds--;
-
-            if (seconds < 0) {
-                clearInterval(timerInterval);
-                $('.alert').hide();
-            }
+        // 짝수일때 Dark 홀수일때 Light
+        if (count % 2 === 0) {
+          $(".badge").text("Dark 🔄");
+        } else {
+          $(".badge").text("Light 🔄");
         }
+      });
 
-        let timerInterval = setInterval(updateTimer, 1000);
+      // 2초뒤에 hide 실행
+      // setTimeout(function () {
+      //     $('.alert').hide();
+      // }, 2000);
 
-        // slide
-        // $('.slide-1').on('click', function () {
-        //     $('.slide-container').css('transform', 'translateX(0)');
-        // })
+      // 1초마다 실행
+      // setInterval(function () {
+      //     console.log('hi')
+      // }, 1000)
 
-        // $('.slide-2').on('click', function () {
-        //     $('.slide-container').css('transform', 'translateX(-100vw)');
-        // })
+      // 이렇게도 사용가능
+      // setTimeout(함수, 1000)
 
-        // $('.slide-3').on('click', function () {
-        //     $('.slide-container').css('transform', 'translateX(-200vw)');
-        // })
+      // function 함수() {
+      //     console.log('안녕')
+      // }
 
-        // 다음버튼 누르면
-        // 지금 보이는 사진이 1이면 2번 사진 보여주세요
-        // 지금 보이는 사진이 2이면 3번 사진 보여주세요
+      let seconds = 5;
 
-        $('.slide-button').on('click', function () {
-            var slideIndex = $('.slide-button').index(this) + 1; // 클릭된 버튼의 인덱스 가져오기
-            var translateValue = (slideIndex - 1) * 100; // 해당 인덱스에 따른 translateX 값 계산
-            $('.slide-container').css('transform', `translateX(-${translateValue}vw)`);
-        });
+      function updateTimer() {
+        $(".seconds").text(seconds);
+        seconds--;
 
-        var 지금사진 = 1;
-
-        $('.next').on('click', function () {
-            var slideBoxCount = $('.slide-container').children('.slide-box').length;
-            if (지금사진 <= slideBoxCount) {
-                $('.slide-container').css('transform', `translateX(-${지금사진}00vw)`);
-                //console.log(지금사진);
-                지금사진++;
-                //console.log(지금사진);
-
-                if (지금사진 > slideBoxCount) {
-                    $('.slide-container').css('transform', `translateX(0)`); // 1번 슬라이드로 돌아가게 함
-                    지금사진 = 1; // 다시 1로 초기화
-                }
-            }
-        });
-
-        $('.prev').on('click', function () {
-            var slideBoxCount = $('.slide-container').children('.slide-box').length;
-            if (지금사진 > 1) { // 현재 슬라이드가 첫 번째 슬라이드가 아닌 경우에만 이전 슬라이드로 이동
-                지금사진--; // 현재 슬라이드 인덱스 감소
-                var translateValue = (지금사진 - 1) * 100; // 이동할 위치 계산
-                $('.slide-container').css('transform', `translateX(-${translateValue}vw)`);
-            } else { // 현재 슬라이드가 첫 번째 슬라이드인 경우에는 마지막 슬라이드로 이동
-                지금사진 = slideBoxCount; // 마지막 슬라이드 인덱스로 설정
-                var translateValue = (slideBoxCount - 1) * 100; // 이동할 위치 계산
-                $('.slide-container').css('transform', `translateX(-${translateValue}vw)`);
-            }
-        });
-
-
-        // return 공부
-        console.log(변환(2, 10));
-        function 변환(a, b) {
-            return (a * 60 + b) * 1000
+        if (seconds < 0) {
+          clearInterval(timerInterval);
+          $(".alert").hide();
         }
+      }
 
-        console.log(세일(10.3, true));
-        function 세일(a, b) {
-            if (b == true) {
-                var sale = (a - a * 0.1) - 1.5
-            } else {
-                var sale = a - a * 0.1
-            }
-            return parseFloat(sale.toFixed(2));
+      let timerInterval = setInterval(updateTimer, 1000);
+
+      // slide
+      // $('.slide-1').on('click', function () {
+      //     $('.slide-container').css('transform', 'translateX(0)');
+      // })
+
+      // $('.slide-2').on('click', function () {
+      //     $('.slide-container').css('transform', 'translateX(-100vw)');
+      // })
+
+      // $('.slide-3').on('click', function () {
+      //     $('.slide-container').css('transform', 'translateX(-200vw)');
+      // })
+
+      // 다음버튼 누르면
+      // 지금 보이는 사진이 1이면 2번 사진 보여주세요
+      // 지금 보이는 사진이 2이면 3번 사진 보여주세요
+
+      $(".slide-button").on("click", function () {
+        var slideIndex = $(".slide-button").index(this) + 1; // 클릭된 버튼의 인덱스 가져오기
+        var translateValue = (slideIndex - 1) * 100; // 해당 인덱스에 따른 translateX 값 계산
+        $(".slide-container").css(
+          "transform",
+          `translateX(-${translateValue}vw)`
+        );
+      });
+
+      var 지금사진 = 1;
+
+      $(".next").on("click", function () {
+        var slideBoxCount = $(".slide-container").children(".slide-box").length;
+        if (지금사진 <= slideBoxCount) {
+          $(".slide-container").css(
+            "transform",
+            `translateX(-${지금사진}00vw)`
+          );
+          //console.log(지금사진);
+          지금사진++;
+          //console.log(지금사진);
+
+          if (지금사진 > slideBoxCount) {
+            $(".slide-container").css("transform", `translateX(0)`); // 1번 슬라이드로 돌아가게 함
+            지금사진 = 1; // 다시 1로 초기화
+          }
         }
+      });
 
-        // header 스크롤 이벤트
+      $(".prev").on("click", function () {
+        var slideBoxCount = $(".slide-container").children(".slide-box").length;
+        if (지금사진 > 1) {
+          // 현재 슬라이드가 첫 번째 슬라이드가 아닌 경우에만 이전 슬라이드로 이동
+          지금사진--; // 현재 슬라이드 인덱스 감소
+          var translateValue = (지금사진 - 1) * 100; // 이동할 위치 계산
+          $(".slide-container").css(
+            "transform",
+            `translateX(-${translateValue}vw)`
+          );
+        } else {
+          // 현재 슬라이드가 첫 번째 슬라이드인 경우에는 마지막 슬라이드로 이동
+          지금사진 = slideBoxCount; // 마지막 슬라이드 인덱스로 설정
+          var translateValue = (slideBoxCount - 1) * 100; // 이동할 위치 계산
+          $(".slide-container").css(
+            "transform",
+            `translateX(-${translateValue}vw)`
+          );
+        }
+      });
 
-        window.addEventListener('scroll', function () {
-            // 유저가 얼만큼 스크롤 내렸는지 위치를 찍어줌
-            // console.log(window.scrollY);
+      // return 공부
+      console.log(변환(2, 10));
+      function 변환(a, b) {
+        return (a * 60 + b) * 1000;
+      }
 
-            // window.scrollTo(0, 100); // 강제로 스크롤 (x, y)
-            // window.scrollBy(0, 100) //현재 위치부터 강제로 스크롤하기 ex) 버튼 누르면 밑으로 100px 이동시켜주세요 같은
-        });
+      console.log(세일(10.3, true));
+      function 세일(a, b) {
+        if (b == true) {
+          var sale = a - a * 0.1 - 1.5;
+        } else {
+          var sale = a - a * 0.1;
+        }
+        return parseFloat(sale.toFixed(2));
+      }
 
-        // 제이쿼리
-        $(window).on('scroll', function () {
-            // scrollY랑 같은거 스크롤 내린 위치 숫자로 찍어줌
-            //console.log($(window).scrollTop());
+      // header 스크롤 이벤트
 
-            if ($(window).scrollTop() > 100) {
-                $('.navbar-brand ').addClass('on')
-            } else {
-                $('.navbar-brand ').removeClass('on')
-            }
-        })
+      window.addEventListener("scroll", function () {
+        // 유저가 얼만큼 스크롤 내렸는지 위치를 찍어줌
+        // console.log(window.scrollY);
+        // window.scrollTo(0, 100); // 강제로 스크롤 (x, y)
+        // window.scrollBy(0, 100) //현재 위치부터 강제로 스크롤하기 ex) 버튼 누르면 밑으로 100px 이동시켜주세요 같은
+      });
+
+      // 제이쿼리
+      $(window).on("scroll", function () {
+        // scrollY랑 같은거 스크롤 내린 위치 숫자로 찍어줌
+        //console.log($(window).scrollTop());
+
+        if ($(window).scrollTop() > 100) {
+          $(".navbar-brand ").addClass("on");
+        } else {
+          $(".navbar-brand ").removeClass("on");
+        }
+      });
     </script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>

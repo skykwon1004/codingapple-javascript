@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+
+  <body>
+    <div>
+      <div>
+        <input type="checkbox" id="boxall" />
+        <label for="boxall">전체선택</label>
+      </div>
+      <div>
+        <input type="checkbox" id="box01" />
+        <label for="box01">옵션01</label>
+      </div>
+      <div>
+        <input type="checkbox" id="box02" />
+        <label for="box02">옵션02</label>
+      </div>
+      <div>
+        <input type="checkbox" id="box03" />
+        <label for="box03">옵션03</label>
+      </div>
+      <div>
+        <input type="checkbox" id="box04" />
+        <label for="box04">옵션04</label>
+      </div>
+      <div>
+        <input type="checkbox" id="box05" />
+        <label for="box05">옵션05</label>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        // 전체 선택 상자를 클릭할 때
+        $("#boxall").on("click", function () {
+          var checked = $(this).is(":checked");
+
+          // 전체 선택 상자의 체크 상태에 따라 모든 상자의 체크 상태 변경
+          $("input:checkbox").prop("checked", checked);
+        });
+
+        // 각 상자를 클릭할 때
+        $("input:checkbox").on("click", function () {
+          updateSelectAllCheckbox();
+        });
+
+        function updateSelectAllCheckbox() {
+          var allChecked = true;
+          $("input:checkbox")
+            .not("#boxall")
+            .each(function () {
+              if (!$(this).is(":checked")) {
+                allChecked = false;
+                return false; // 모든 체크박스가 선택되어 있지 않으면 반복문을 종료합니다.
+              }
+            });
+
+          $("#boxall").prop("checked", allChecked);
+        }
+      });
+    </script>
+  </body>
+</html>
