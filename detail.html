@@ -59,7 +59,107 @@
         .show {
           display: block;
         }
-      </style>
+
+        /* 상품선택 */
+        .shirt-option,
+        .pants-option {
+          display: none;
+        }
+
+        .shirt-option.on,
+        .pants-option.on {
+          display: block;
+        }
+
+    </style>
+
+      <div class="container mt-3">
+        <div class="card p-3">
+          <strong class="prd"></strong>
+          <span class="prd-price"></span>
+        </div>
+      </div>
+
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2 list-option">
+          <option>모자</option>
+          <option>셔츠</option>
+          <option>바지</option>
+        </select>
+
+        <select class="form-select mt-2 shirt-option">
+          <option>95</option>
+          <option>100</option>
+          <option>105</option>
+        </select>
+
+        <select class="form-select mt-2 pants-option">
+
+        </select>
+      </form>
+
+      <div id="test">
+
+      </div>
+
+      <script>
+
+        var pants = [28, 30, 32, 34];
+        // var shirts = [s, m, l, xl, xxl];
+
+        $('.list-option').change(function(){
+          if ($(this).val() === '셔츠') {
+            $('.shirt-option').addClass('on');
+          } else {
+            $('.shirt-option').removeClass('on');
+          } 
+
+          if ($(this).val() === '바지') {
+            $('.pants-option').addClass('on');
+
+            // 배열의 요소 길이 만큼 반복문을 돌려주는것 forEach
+            pants.forEach(function(itme, index){
+              $('.pants-option').append(`<option>${itme}</option>`)
+            });
+          } else {
+            $('.pants-option').removeClass('on');
+          }
+        })
+
+        // 오브젝트 반복문 for in
+        var obj = {name:'kim', age:20};
+        for (var key in obj) {
+          console.log(obj[key]);
+        }
+
+        // let addPantsOption =  `
+        //   <option>28</option>
+        //   <option>30</option>
+        //   <option>32</option>
+        //   <option>34</option>
+        //   <option>36</option>
+        // `
+
+        // $('.pants-option').append(addPantsOption);
+
+        //  자바스크립트로 html 추가 생성하는 법 - 01
+        // var a = document.createElement('p');
+        // a.innerHTML = 'hi';
+        // document.querySelector('#test').appendChild(a);
+
+        // 자바스크립트로 html 추가 생성하는 법 - 02
+        // var 탬플릿 = '<p>hi</p>';
+        // document.querySelector('#test').insertAdjacentHTML('beforeend', 탬플릿);
+
+        // 제이쿼리로 html 추가 생성하는 법 
+        // var 탬플릿 = '<p>hi</p>';
+        // $('#test').append(탬플릿);
+
+        // 빠른건(0.0000000몇차이로... 사실 별 차이읍슴) .createElement() 이거임 .insertAdjacentHTML 랑 append 보다
+
+      </script>
+
       
       <div class="container mt-5">
         <ul class="list">
@@ -78,9 +178,27 @@
         </div>
       </div> 
 
+      <script>
+         // array자료형
+         var car = ['소나타',50000,'white'];
+         car[3] = '아반떼'; // 3번 배열 추가
+         car[0] = '아반떼'; // 소나타를 아반떼로 수정
+         console.log(car[0])
 
+         // object자료형
+         var car2 = {name: '벤츠', price: [50000, 30000, 40000]}
+         // car2.price = 100000;
+         console.log(car2.name)
+         console.log(car2.price)
+         //console.log(car2['price'])// 위에랑 동일 이렇게하면 변수넣기 가능
 
+         // array과 object차이점
+         // 데이터가 많아지면 array에 넣으면 몇번째에 있는지 외워야하니깐 key(이름)를 가져다 쓰면 되니깐, 그리고 array는 순서가 중요하니깐 자료간 정렬로 뭘 할라면 이게 유용하고...(가나다 순으로 정렬 이딴거 만들때)
 
+         $('.prd').text(car2.name);
+         $('.prd-price').text(car2.price[0]);
+
+      </script>
 
       <script src="/detail.js"></script>
 
